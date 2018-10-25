@@ -1,0 +1,39 @@
+import obras.*
+import obreros.*
+describe "group of tests" {
+
+	var obra = new Obras()
+	var albanil1 = new Albanil()
+	var albanil2 = new Albanil()
+	var gasista1 = new Gasista()
+	var gasista2 = new Gasista()
+	var plomero = new Plomero()
+	var electricista = new Electricista()
+	
+	
+	fixture{
+		obra.agregarObreros(albanil1)
+		obra.agregarObreros(albanil2)
+		obra.agregarObreros(gasista1)
+		obra.agregarObreros(gasista2)
+		obra.agregarObreros(plomero)
+		obra.agregarObreros(electricista)
+		albanil1.licencia(true)
+		obra.ladrillos(1000)
+		obra.canio(400)
+		obra.fosforos(8000)
+		obra.arandelas(500)
+		
+	}
+	
+	test "testX" {
+		
+		obra.registrarJornada()
+		assert.equals(900,obra.ladrillos())
+		assert.equals(384,obra.canio())
+		assert.equals(7960,obra.fosforos())
+		assert.equals(470,obra.arandelas())
+	
+
+	}
+}
